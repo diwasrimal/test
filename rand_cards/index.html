@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    
+</head>
+<body>
+
+    <div>
+        <h1>Random VISA Cards!</h1>
+    </div>
+    <div>
+        <!-- Drop down list of cards -->
+        <label for="card-type">Card: </label>
+        <select id="card-type">
+            <option value="visa" style="background: url(../img/visa.png) no repeat; padding-left: 20px; ">VISA</option>
+            <option value="mastercard"><img class="icon" src="../img/mastercard.png">Mastercard</option>
+        </select><br>
+        <!-- For number of cards to generate -->
+        <label for="amount">Amount: </label>
+        <input type="number" id="amount"><br>
+        <button class="button" onclick="make()">Generate</button>
+    </div>
+    <div id="result">
+    </div> 
+    <script src="main.js"></script>
+
+    <script>
+        function make() {
+            let cardType = document.getElementById("card-type").value
+            let amount = document.getElementById("amount").value
+            if (amount <= 0 || amount > 5){
+                alert("Use numbers from 1 to 5")
+            }
+
+            let cardList = ''
+            for (let i = 0; i < amount; i++) {
+                let card = generate(cardType)
+                cardList += "<li>" + card + "</li>" + "<br>"
+            }
+            document.getElementById("result").innerHTML = cardList
+        }
+    </script>
+
+</body>
+</html>
