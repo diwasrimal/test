@@ -47,3 +47,14 @@ select , select{
     height: 250px;
     width: 50%;
 }
+
+#card-type{
+    background-color: #E6E6FA;
+}
+.hidden{
+    display: none;
+}
+.cardLogo{
+    height: 20px;
+    width: auto;
+}

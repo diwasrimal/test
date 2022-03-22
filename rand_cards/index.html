@@ -1,52 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-
-    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card gen</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
+<body>
     <div>
         <h1>Random VISA Cards!</h1>
     </div>
     <div>
         <!-- Drop down list of cards -->
         <label for="card-type">Card: </label>
-        <select id="card-type">
-            <option value="visa" style="background: url(../img/visa.png) no repeat; padding-left: 20px; ">VISA</option>
-            <option value="mastercard"><img class="icon" src="../img/mastercard.png">Mastercard</option>
-        </select><br>
+        <!--will be hidden , used to pass data easily to JS timro normal function batai kaam garauna-->
+        <select name="card-type" class="hidden">
+            <option value="visa">VISA</option>
+            <option value="mastercard">mastercard</option>
+        </select>
+        <span id="card-type">
+            <span id="visaOption">
+                <span class="optionWrapper" onClick="changeOption('visa')">
+                    <img src="/img/visa.png" class="cardLogo" />visa
+                    <span class="downArrow">&or;</span>
+                </span>
+            </span>
+            <br />
+            <span class="hidden" id="mastercardOption">
+                <span class="optionWrapper" onClick="changeOption('mastercard')">
+                    <img src="/img/mastercard.png" class="cardLogo" />mastercard
+                    <span class="downArrow">&or;</span>
+                </span></span>
+        </span>
+        <br />
         <!-- Number of cards to generate -->
         <label for="amount">Amount: </label>
-        <input type="number" id="amount"><br>
+        <input type="number" id="amount" /><br />
         <button class="button" onclick="make()">Generate</button>
-
     </div>
-    <div id="result">
-    </div> 
+    <div id="result"></div>
     <script src="main.js"></script>
 
     <script>
         function make() {
-            let cardType = document.getElementById("card-type").value
-            let amount = document.getElementById("amount").value
-            if (amount <= 0 || amount > 5){
-                alert("Use numbers from 1 to 5")
+            //form ko grab garna by Name
+            let cardType = document.getElementsByName("card-type")[0].value;
+            console.log(cardType);
+            let amount = document.getElementById("amount").value;
+            if (amount <= 0 || amount > 5) {
+                alert("Use numbers from 1 to 5");
             }
 
-            let cardList = ''
+            let cardList = "";
             for (let i = 0; i < amount; i++) {
-                let card = generate(cardType)
-                cardList += "<li>" + card + "</li>" + "<br>"
+                let card = generate(cardType);
+                cardList += "<li>" + card + "</li>" + "<br>";
             }
-            document.getElementById("result").innerHTML = cardList
+            document.getElementById("result").innerHTML = cardList;
+        }
+        function changeOption(option) {
+            let options = document.getElementById("card-type").children;
+            let isChanging = true;
+            for (let i = 0; i < options.length; i++) {
+                if (isHidden(options[i])) {
+                    isChanging = false;
+                }
+            }
+
+            if (isChanging) {
+                let select = document.getElementsByName("card-type")[0];
+                select.value = option;
+                console.log(select.value);
+                for (let i = 0; i < options.length; i++) {
+                    if (!(options[i].id == `${option}Option`)) {
+                        options[i].classList.add("hidden");
+                    }
+                }
+                showDownArrow()
+
+            } else {
+
+                hideDownArrow()
+                showAllOptions();
+            }
+            function hideDownArrow() {
+                let downArrows = document.getElementsByClassName("downArrow");
+                for (let i = 0; i < downArrows.length; i++) {
+                    downArrows[i].classList.add("hidden");
+                }
+            }
+            function showDownArrow() {
+                let downArrows = document.getElementsByClassName("downArrow");
+                for (let i = 0; i < downArrows.length; i++) {
+                    downArrows[i].classList.remove("hidden");
+                }
+            }
+        }
+        function showAllOptions() {
+            let allOptions = document.getElementById("card-type").children;
+            for (let i = 0; i < allOptions.length; i++) {
+                allOptions[i].classList.remove("hidden");
+            }
+        }
+        function isHidden(elem) {
+            return elem.classList.contains("hidden");
         }
     </script>
-
 </body>
+
 </html>
