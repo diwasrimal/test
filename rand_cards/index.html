@@ -6,31 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-
-    
 </head>
+
 <body>
 
-    <div>
-        <h1>Random VISA Cards!</h1>
-    </div>
+    <div> <h1>Random Cards!</h1> </div>
     <div>
         <!-- Drop down list of cards -->
-        <label for="card-type">Card: </label>
+        <label for="card-type"> Card Type: </label>
         <select id="card-type">
-            <option value="visa" style="background: url(../img/visa.png) no repeat; padding-left: 20px; ">VISA</option>
-            <option value="mastercard"><img class="icon" src="../img/mastercard.png">Mastercard</option>
+            <option value="visa""> VISA </option>
+            <option value="mastercard"> Mastercard </option>
         </select><br>
         <!-- Number of cards to generate -->
         <label for="amount">Amount: </label>
         <input type="number" id="amount"><br>
         <button class="button" onclick="make()">Generate</button>
-
     </div>
-    <div id="result">
-    </div> 
-    <script src="main.js"></script>
 
+    <div id="result"></div> 
+
+
+    <!-- javascript-->
+    <script src="main.js"></script>
     <script>
         function make() {
             let cardType = document.getElementById("card-type").value
@@ -42,8 +40,10 @@
             let cardList = ''
             for (let i = 0; i < amount; i++) {
                 let card = generate(cardType)
+                console.log(card);
                 cardList += "<li>" + card + "</li>" + "<br>"
             }
+            console.log(cardList)
             document.getElementById("result").innerHTML = cardList
         }
     </script>

@@ -1,5 +1,6 @@
 body {
-    background-color: powderblue;
+    background-color: rgb(56, 51, 48);
+    color: whitesmoke;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
@@ -22,8 +23,9 @@ select, input {
     background-color: lavender;
 }
 
-select , select{
-    width: 100px;
+select {
+    width: 110px;
+    text-align: center;
 }
 
 .button {
@@ -35,11 +37,15 @@ select , select{
     border-radius: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.button:hover {border: 1px solid white;}
-
+.button:hover {
+    border: 1px solid white;
+    background-color: orange;
+}
 
 #result {
     text-align: left;
+    font-family: consolas, arial;
+    color: black;
     margin: auto;
     padding: 10px;
     margin-top: 25px;

@@ -62,3 +62,4 @@ function generate(type) {
         return cardString
 }
 
+console.log("hello owrold")
