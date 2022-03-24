@@ -11,31 +11,17 @@
 
 <body>
     <div>
-        <h1>Random VISA Cards!</h1>
+        <h1>Random Cards!</h1>
     </div>
     <div>
-        <!-- Drop down list of cards -->
-        <label for="card-type">Card: </label>
-        <!--will be hidden , used to pass data easily to JS timro normal function batai kaam garauna-->
-        <select name="card-type" class="hidden">
-            <option value="visa">VISA</option>
-            <option value="mastercard">mastercard</option>
-        </select>
-        <span id="card-type">
-            <span id="visaOption">
-                <span class="optionWrapper" onClick="changeOption('visa')">
-                    <img src="/img/visa.png" class="cardLogo" />visa
-                    <span class="downArrow">&or;</span>
-                </span>
-            </span>
-            <br />
-            <span class="hidden" id="mastercardOption">
-                <span class="optionWrapper" onClick="changeOption('mastercard')">
-                    <img src="/img/mastercard.png" class="cardLogo" />mastercard
-                    <span class="downArrow">&or;</span>
-                </span></span>
-        </span>
-        <br />
+        
+        <!-- buttons of cards -->
+        <div id="image-buttons">
+            <img src="../img/visa.png" class="card-icons" onclick="select(0)" alt="visa">
+            <img src="../img/mastercard.png" class="card-icons" onclick="select(1) "alt="mastercard">
+            <img src="../img/amex.png" class="card-icons" onclick="select(2) "alt="amex">
+        </div>
+
         <!-- Number of cards to generate -->
         <label for="amount">Amount: </label>
         <input type="number" id="amount" /><br />
@@ -45,6 +31,7 @@
     <script src="main.js"></script>
 
     <script>
+        
         function make() {
             //form ko grab garna by Name
             let cardType = document.getElementsByName("card-type")[0].value;
@@ -61,53 +48,12 @@
             }
             document.getElementById("result").innerHTML = cardList;
         }
-        function changeOption(option) {
-            let options = document.getElementById("card-type").children;
-            let isChanging = true;
-            for (let i = 0; i < options.length; i++) {
-                if (isHidden(options[i])) {
-                    isChanging = false;
-                }
-            }
 
-            if (isChanging) {
-                let select = document.getElementsByName("card-type")[0];
-                select.value = option;
-                console.log(select.value);
-                for (let i = 0; i < options.length; i++) {
-                    if (!(options[i].id == `${option}Option`)) {
-                        options[i].classList.add("hidden");
-                    }
-                }
-                showDownArrow()
+        function select(imageNumber) {
+            let element = document.getElementsByClassName("card-icons")[imageNumber];
+            console.log(element.innerHTML)
+        }
 
-            } else {
-
-                hideDownArrow()
-                showAllOptions();
-            }
-            function hideDownArrow() {
-                let downArrows = document.getElementsByClassName("downArrow");
-                for (let i = 0; i < downArrows.length; i++) {
-                    downArrows[i].classList.add("hidden");
-                }
-            }
-            function showDownArrow() {
-                let downArrows = document.getElementsByClassName("downArrow");
-                for (let i = 0; i < downArrows.length; i++) {
-                    downArrows[i].classList.remove("hidden");
-                }
-            }
-        }
-        function showAllOptions() {
-            let allOptions = document.getElementById("card-type").children;
-            for (let i = 0; i < allOptions.length; i++) {
-                allOptions[i].classList.remove("hidden");
-            }
-        }
-        function isHidden(elem) {
-            return elem.classList.contains("hidden");
-        }
     </script>
 </body>
 

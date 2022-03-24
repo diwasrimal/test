@@ -12,7 +12,25 @@ div {
 
 }
 
-select, input {
+#image-buttons {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.card-icons {
+    width: 50px;
+    margin: 0 5px;
+    border-radius: 10px;
+    
+}
+.card-icons:hover {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+
+
+input {
     font-weight: inherit; 
     font-family: inherit;
     width: 40px;
@@ -22,9 +40,7 @@ select, input {
     background-color: lavender;
 }
 
-select , select{
-    width: 100px;
-}
+
 
 .button {
     text-align: center;
@@ -35,7 +51,7 @@ select , select{
     border-radius: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.button:hover {border: 1px solid white;}
+.button:hover {border: 1px solid black;}
 
 
 #result {
@@ -50,11 +66,4 @@ select , select{
 
 #card-type{
     background-color: #E6E6FA;
-}
-.hidden{
-    display: none;
-}
-.cardLogo{
-    height: 20px;
-    width: auto;
 }
