@@ -7,6 +7,7 @@ function randCard(type) {
     let cardInfos = {
         "visa": {"firstDigit": 4, "length": [13,16]},
         "mastercard": {"firstDigit": 5, "length": [13]}
+        
     }
     
     // finding information based on card type

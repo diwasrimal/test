@@ -55,6 +55,7 @@ input {
 
 
 #result {
+    font-family: consolas;
     text-align: left;
     margin: auto;
     padding: 10px;

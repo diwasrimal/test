@@ -17,9 +17,9 @@
         
         <!-- buttons of cards -->
         <div id="image-buttons">
-            <img src="../img/visa.png" class="card-icons" onclick="select(0)" alt="visa">
-            <img src="../img/mastercard.png" class="card-icons" onclick="select(1) "alt="mastercard">
-            <img src="../img/amex.png" class="card-icons" onclick="select(2) "alt="amex">
+            <img src="../img/visa.png" class="card-icons" onclick="select('visa')" alt="visa">
+            <img src="../img/mastercard.png" class="card-icons" onclick="select('mastercard') "alt="mastercard">
+            <img src="../img/amex.png" class="card-icons" onclick="select('amex') "alt="amex">
         </div>
 
         <!-- Number of cards to generate -->
@@ -30,12 +30,14 @@
     <div id="result"></div>
     <script src="main.js"></script>
 
-    <script>
+    <script>     
+        var cardType;
         
         function make() {
-            //form ko grab garna by Name
-            let cardType = document.getElementsByName("card-type")[0].value;
-            console.log(cardType);
+            if (cardType === 'amex') {
+                document.getElementById("result").innerHTML = cardType + " isn't available right now";
+            }
+
             let amount = document.getElementById("amount").value;
             if (amount <= 0 || amount > 5) {
                 alert("Use numbers from 1 to 5");
@@ -49,9 +51,9 @@
             document.getElementById("result").innerHTML = cardList;
         }
 
-        function select(imageNumber) {
-            let element = document.getElementsByClassName("card-icons")[imageNumber];
-            console.log(element.innerHTML)
+        function select(type) {
+
+            cardType = type;
         }
 
     </script>
