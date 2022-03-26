@@ -24,11 +24,14 @@ div {
     width: 50px;
     margin: 0 5px;
     border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 0.3s;
     
 }
-.card-icons:hover {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+.card-icons:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-
+}
 
 input {
     font-weight: inherit; 
@@ -40,14 +43,13 @@ input {
     background-color: lavender;
 }
 
-
-
 .button {
     text-align: center;
     padding: 8px;
     margin: 10px;
     background-color: lavender;
     border: none;
+    cursor: pointer;
     border-radius: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
