@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rand_cards/styles.css">
+</head>
+<body>
+    
+    <div id="image-buttons">
+        <img src="../img/visa.png" class="card-icons" onclick="select('visa')" id="visa" alt="visa">
+        <img src="../img/mastercard.png" class="card-icons" onclick="select('mastercard')" id="mastercard" alt="mastercard">
+        <img src="../img/amex.png" class="card-icons" onclick="select('amex')" id="amex" alt="amex">
+    </div>
+
+    <script>
+        function select(cardType) {
+            let element = document.getElementById(cardType);
+            console.log(element)
+
+            element.addEventListener("click", function() {
+                alert("you clicked " + cardType )
+            })
+        }
+    </script>
+</body>
+</html>

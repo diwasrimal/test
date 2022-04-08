@@ -1,0 +1,52 @@
+body {
+    background-color: powderblue;
+}
+
+/* div {border: 1px solid black;} */
+
+#container {
+    display: grid;  
+    padding: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(32, 27, 28);
+}
+
+#input-box, #buttons-div {
+    display: flex;
+    justify-content: right;
+}
+.sub-box {
+    display: grid;
+    gap: 5px 0;
+    padding: 5px;  
+}
+.sub-box {
+    font-size: larger;
+}
+
+.sub-box input {
+    padding: 3px 5px;
+    font-size: medium;
+    font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Buttons styling */
+.button {
+    padding: 9px 15px;
+    margin:  10px 20px;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.73);
+    cursor: pointer;
+    border-radius: 3px;
+    transition: opacity 0.1s;
+}
+
+.button:hover { opacity: 0.8;}
+.button:active { opacity: 0.5; }
+
