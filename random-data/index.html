@@ -3,11 +3,12 @@
     <head>
         <title>Storage</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
     </head>
     <body>
 
         <div id="container">
-            <form action="insert.php" method="_POST">
+            <form action="insert.php" method="POST" name="myform">
                 <div id="input-box">
                     <div class="sub-box">
                         <div><label for="name">Name: </label></div>
@@ -15,18 +16,43 @@
                         <div><label for="name">Class: </label></div>
                     </div>
                     <div class="sub-box">
-                        <div><input type="text" name="name" id="name" autofocus required ></div>
-                        <div><input type="text" name="age" id="age" required></div>
-                        <div><input type="text" name="class" id="class" required></div>
+                        <div><input type="text" name="name" id="name" autofocus  ></div>
+                        <div><input type="text" name="age" id="age" ></div>
+                        <div><input type="text" name="class" id="class" ></div>
                     </div>
                 </div>
 
                 <div id="buttons-div">
-                    <button class="button" id="random"r>Random</button>
+                    <button class="button" id="random" onclick="show()">Random</button>
                     <input type="submit" name="submit" class="button">
-                </>
+                </div>
             </form>
         </div>
+
+        <?php 
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+    $class = $_POST['class'];
+}
+
+echo "name is $name <br> age is $age and <br> class is $class";
+
+
+
+?>
+
+
+
+        <script>
+            function show() {
+                // console.log(document.forms['myform']['name'].value );
+                console.log(document.querySelector('#age').value);
+                console.log(document.querySelector('#class').value);
+
+            }
+        </script>
 
     </body>
 </html>
